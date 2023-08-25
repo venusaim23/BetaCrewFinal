@@ -35,8 +35,6 @@ namespace BetaCrewClient
                     foreach (Packet packet in packets)
                         receivedSequences.Add(packet.Sequence);
 
-                    // List<int> missingSequences = FindMissingSequences(receivedSequences);
-                    // Console.WriteLine(missingSequences.Count);
                     Console.WriteLine();
                     int count = 1;
                     while (count <= 14)
