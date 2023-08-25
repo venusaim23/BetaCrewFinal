@@ -1,0 +1,100 @@
+[
+  {
+    "Symbol": "AAPL",
+    "BuySellIndicator": "B",
+    "Quantity": 838860800,
+    "Price": 1677721600,
+    "Sequence": 16777216
+  },
+  {
+    "Symbol": "AAPL",
+    "BuySellIndicator": "B",
+    "Quantity": 503316480,
+    "Price": 1644167168,
+    "Sequence": 33554432
+  },
+  {
+    "Symbol": "AAPL",
+    "BuySellIndicator": "S",
+    "Quantity": 335544320,
+    "Price": 1694498816,
+    "Sequence": 50331648
+  },
+  {
+    "Symbol": "AAPL",
+    "BuySellIndicator": "S",
+    "Quantity": 167772160,
+    "Price": 1711276032,
+    "Sequence": 67108864
+  },
+  {
+    "Symbol": "META",
+    "BuySellIndicator": "B",
+    "Quantity": 671088640,
+    "Price": 838860800,
+    "Sequence": 83886080
+  },
+  {
+    "Symbol": "META",
+    "BuySellIndicator": "S",
+    "Quantity": 503316480,
+    "Price": 922746880,
+    "Sequence": 100663296
+  },
+  {
+    "Symbol": "META",
+    "BuySellIndicator": "S",
+    "Quantity": 335544320,
+    "Price": 956301312,
+    "Sequence": 117440512
+  },
+  {
+    "Symbol": "MSFT",
+    "BuySellIndicator": "B",
+    "Quantity": 419430400,
+    "Price": -1778384896,
+    "Sequence": 134217728
+  },
+  {
+    "Symbol": "MSFT",
+    "BuySellIndicator": "S",
+    "Quantity": 251658240,
+    "Price": -1694498816,
+    "Sequence": 150994944
+  },
+  {
+    "Symbol": "MSFT",
+    "BuySellIndicator": "B",
+    "Quantity": 335544320,
+    "Price": -1811939328,
+    "Sequence": 167772160
+  },
+  {
+    "Symbol": "AMZN",
+    "BuySellIndicator": "B",
+    "Quantity": 167772160,
+    "Price": -1207238656,
+    "Sequence": 184549376
+  },
+  {
+    "Symbol": "AMZN",
+    "BuySellIndicator": "B",
+    "Quantity": 83886080,
+    "Price": -1224015872,
+    "Sequence": 201326592
+  },
+  {
+    "Symbol": "AMZN",
+    "BuySellIndicator": "S",
+    "Quantity": 251658240,
+    "Price": -871694336,
+    "Sequence": 218103808
+  },
+  {
+    "Symbol": "AMZN",
+    "BuySellIndicator": "S",
+    "Quantity": 167772160,
+    "Price": -955580416,
+    "Sequence": 234881024
+  }
+]
