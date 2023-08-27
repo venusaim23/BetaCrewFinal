@@ -35,17 +35,17 @@ namespace BetaCrewClient
                     foreach (Packet packet in packets)
                         receivedSequences.Add(packet.Sequence);
 
-                    // List<int> missingSequences = FindMissingSequences(receivedSequences);
-                    // Console.WriteLine(missingSequences.Count);
                     Console.WriteLine();
-                    int count = 1;
-                    while (count <= 14)
+
+                    List<int> missingSequences = FindMissingSequences(receivedSequences);
+
+                    foreach (int sequence in missingSequences)
                     {
                         using (TcpClient resendClient = new TcpClient(serverIp, serverPort))
                         using (NetworkStream resendStream = resendClient.GetStream())
                         {
-                            Console.WriteLine("Requesting packet: " + count);
-                            byte[] resendRequest = { 2, (byte)count };
+                            Console.WriteLine("Requesting packet: " + sequence);
+                            byte[] resendRequest = { 2, (byte)sequence };
                             resendStream.Write(resendRequest, 0, resendRequest.Length);
 
                             // Receive and process the missing packet
@@ -60,8 +60,6 @@ namespace BetaCrewClient
                                 Console.WriteLine("Packet already exists!");
                             }
                             Console.WriteLine();
-
-                            count++;
                         }
                     }
 
@@ -75,6 +73,18 @@ namespace BetaCrewClient
             {
                 Console.WriteLine("An error occurred: " + ex.Message);
             }
+        }
+
+        static List<int> FindMissingSequences(List<int> receivedSequences)
+        {
+            List<int> missingSequences = new List<int>();
+            for (int i = 1; i < receivedSequences.Last(); i++)
+            {
+                if (!receivedSequences.Contains(i))
+                    missingSequences.Add(i);
+            }
+
+            return missingSequences;
         }
 
         static List<Packet> ReceivePackets(NetworkStream stream)
@@ -112,6 +122,13 @@ namespace BetaCrewClient
             stream.Read(priceBytes, 0, 4);
             stream.Read(sequenceBytes, 0, 4);
 
+            // Console.WriteLine("Quantity: ");
+            // PrintByteArray(sequenceBytes);
+
+            Array.Reverse(quantityBytes);
+            Array.Reverse(priceBytes);
+            Array.Reverse(sequenceBytes);
+
             string symbol = Encoding.ASCII.GetString(symbolBytes);
             char buySellIndicator = Encoding.ASCII.GetChars(buySellIndicatorBytes)[0];
             int quantity = BitConverter.ToInt32(quantityBytes, 0);
@@ -129,6 +146,21 @@ namespace BetaCrewClient
                 Sequence = sequence
             };
         }
+
+        /*static void PrintByteArray(byte[] bytes)
+        {
+            foreach (var b in bytes)
+            {
+                Console.WriteLine(b);
+            }
+        }
+
+        static byte[] ReverseByteArray(byte[] arr)
+        {
+            byte[] b = new byte[arr.Length];
+            Array.Reverse(arr, 0, arr.Length);
+            return b;
+        }*/
 
         static void GenerateJsonOutput(List<Packet> packets)
         {
